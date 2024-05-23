@@ -1,21 +1,19 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useDoctorStore } from '@/store'
-import type { Doctor } from '@/assets/interfaces/interface'
+import type { Doctor, Specialisation } from '@/assets/interfaces/interface'
 
 // Props
 interface Props {
-  doctor: Doctor
+  doctor: Doctor,
+  specialities: { [key: number]: Specialisation},
 }
 
-// Store
-const store = useDoctorStore()
 const props = defineProps<Props>()
 
 // Computed
 const specialityName = computed(() => {  
   return props.doctor?.specialisationList
-    .map((speciality) => store.specialisationMap[speciality.id]?.name)  
+    .map((speciality) => props.specialities[speciality.id]?.name)  
     .filter((name): name is string => !!name) 
     .join(', ') || '';
 });
@@ -24,7 +22,6 @@ const doctorName = computed(() => {
   const { lastName, firstName, middleName } = props.doctor;
   return `${lastName} ${firstName} ${middleName}`;
 });
-
 </script>
 
 <template>

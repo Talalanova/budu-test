@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Doctor } from '@/assets/interfaces/interface'
-import DoctorCard from '@/components/DoctorCard.vue'
+import type { Doctor, Specialisation } from '@/assets/interfaces/interface'
 
 // Props
 interface Props {
-  doctors: Doctor[]
+  doctors: Doctor[],
+  specialities: { [key: number]: Specialisation},
 }
 
 const props = defineProps<Props>()
@@ -16,6 +16,7 @@ const props = defineProps<Props>()
         v-for="doctor in props.doctors" 
         :key="doctor.id" 
         :doctor="doctor" 
+        :specialities="specialities"
       />
     </div>
 </template>

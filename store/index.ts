@@ -6,7 +6,6 @@ export const useDoctorStore = defineStore('useDoctorStore', {
   state: () => ({
     specialisations: specialisationsData as Specialisation[],
     doctors: doctorsData as Doctor[],
-    specialisationMap: new Map<number, Specialisation>(),
   }),
 
   getters: {
