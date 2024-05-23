@@ -1,41 +1,21 @@
-# Тестовое задание
-
-# Запуск
+## Setup
+node v20.13.1
 
 Make sure to install the dependencies:
-node -v 20.13.1
-
 ```bash
-# npm
 npm install
-npm run dev
-
 ```
-Start the development server on `http://localhost:3000`:
 
-## Production
+## Development Server
+```bash
+npm run dev
+```
 
-Build the application for production:
+## Preview
+Locally preview production build
 
 ```bash
 # npm
 npm run build
-
-```
-
-Locally preview production build:
-
-```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
-
